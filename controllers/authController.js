@@ -99,7 +99,7 @@ exports.login = async (req, res, next) => {
 		const token = createToken(user.id);
 
 		// Remove the password from the output
-		user.password = undefined;
+		user.password = (void 0);
 
 		res.status(200).json({
 			status: "success",

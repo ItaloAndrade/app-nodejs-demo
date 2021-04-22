@@ -13,7 +13,7 @@ process.on("uncaughtException", (err) => {
         return
     };
     /* eslint no-console: "error" */
-    console.log(err.name, err.message);
+    Console.log(err.name, err.message);
     process.exit(1);
 });
 
