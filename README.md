@@ -22,7 +22,7 @@ Se você considera meu projeto como algo útil, pode  valorizar o meu trabalho f
 
 ## Características
 
-    - Autenticaçã básica (registrar / fazer login com senha em hash)
+    - Autenticação básica (registrar / fazer login com senha em hash)
     - Tokens JWT, faça solicitações com um token após o login com o cabeçalho `Authorization` com o valor` Bearer token` onde `token` será retornado na resposta de Login.
     - Estruturas de resposta predefinidas com códigos de status adequados.
     - CORS incluído.
