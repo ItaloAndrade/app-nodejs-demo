@@ -5,7 +5,7 @@
 
 Um exemplo pronto para usar no desenvolvimento de API REST com Node.js, Express e MongoDB
 
-## INICIO
+## Inicio
 
 Este é um modelo básico de API escrito em JavaScript ES2015. Ele pode ser utilizado para construir APIs web RESTful para suas plataformas front-end como frameworks Android, iOS ou JavaScript (Angular, Vue, etc).
 
