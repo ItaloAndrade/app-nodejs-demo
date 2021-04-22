@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const { Console } = require('console');
+const {
+    Console
+} = require('console');
 const server = {};
 dotenv.config({
     path: "./config.env"
@@ -9,12 +11,11 @@ dotenv.config({
 process.on("uncaughtException", (err) => {
 
     /**Ignorar erro relacionado a porta existente caso ambiente seja de desenvolvimento */
-    if (err.errno === -4091 && process.env.NODE_ENVIROMMENT === "development") {
-        return
+    if (err.errno !== -4091 || process.env.NODE_ENVIROMMENT !== "development") {
+        /* eslint no-console: "error" */
+        Console.log(err.name, err.message);
+        process.exit(1);
     };
-    /* eslint no-console: "error" */
-    Console.log(err.name, err.message);
-    process.exit(1);
 });
 
 const app = require("./app");
