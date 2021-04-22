@@ -1,6 +1,6 @@
 # Nodejs ExpressJs MongoDB utilizando  boas práticas de desenvolvimento
 
-[![Author](https://img.shields.io/badge/author-italorio%40gmail.com-blue)](italorio@gmail.com) [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/rest-api-nodejs-mongodb/blob/master/LICENSE) ![GitHub repo size](https://img.shields.io/badge/repo%20size-900kb-yellow) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/b3eb80984adc4671988ffb22d6ad83df)](https://www.codacy.com/manual/maitraysuthar/rest-api-nodejs-mongodb?utm_source=github.com&utm_medium=referral&utm_content=maitraysuthar/rest-api-nodejs-mongodb&utm_campaign=Badge_Coverage) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f6fc9b7ebd0436da2bf678e3cabc8d7)](https://www.codacy.com/gh/ItaloAndrade/app-nodejs-demo/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ItaloAndrade/app-nodejs-demo&amp;utm_campaign=Badge_Grade) ![italorio@gmail.com](https://img.shields.io/badge/build-pass-green)
+[![Author](https://img.shields.io/badge/author-italorio%40gmail.com-blue)](italorio@gmail.com) [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/rest-api-nodejs-mongodb/blob/master/LICENSE) ![GitHub repo size](https://img.shields.io/badge/repo%20size-900kb-yellow) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/b3eb80984adc4671988ffb22d6ad83df)](https://www.codacy.com/manual/maitraysuthar/rest-api-nodejs-mongodb?utm_source=github.com&utm_medium=referral&utm_content=maitraysuthar/rest-api-nodejs-mongodb&utm_campaign=Badge_Coverage) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/905babf1b50c4b7188c875e3d0551990)](https://www.codacy.com/gh/ItaloAndrade/app-nodejs-demo/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ItaloAndrade/app-nodejs-demo&amp;utm_campaign=Badge_Grade) ![italorio@gmail.com](https://img.shields.io/badge/build-pass-green)
 
 Um exemplo pronto para usar no desenvolvimento de API REST com Node.js, Express e MongoDB
 
@@ -58,7 +58,6 @@ npm install
 
 1.  Você encontrará um arquivo chamado `config.env` no diretório raiz do projeto.
 2.  Altere o arquivo com suas configurações secretas.
-
 
 ## Bugs or improvements
 
