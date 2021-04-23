@@ -11,3 +11,4 @@ tmp_files/
 *.psd
 *.pdf 
 *.nyc_output
+coverage/
