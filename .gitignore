@@ -10,4 +10,5 @@ tmp_files/
 *.ai
 *.psd
 *.pdf 
+*.nyc_output
 coverage/
