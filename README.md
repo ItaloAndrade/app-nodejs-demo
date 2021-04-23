@@ -1,4 +1,4 @@
-# ❤ NodeJS + ExpressJs +  MongoDB + Travis-Ci + Codacy 🎉...
+# ❤ NodeJS + ExpressJs +  MongoDB + Travis-Ci + Codacy  + Eslint + JWT 🎉
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3574d6cb24e94649a2bda0a1b8ce4817)](https://app.codacy.com/gh/ItaloAndrade/app-nodejs-demo?utm_source=github.com&utm_medium=referral&utm_content=ItaloAndrade/app-nodejs-demo&utm_campaign=Badge_Grade_Settings)
 [![Author](https://img.shields.io/badge/author-italoandrade.develop%40gmail.com-blue)](mailto:italorio@gmail.com "italoandrade.developer@gmail.com") [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/rest-api-nodejs-mongodb/blob/master/LICENSE) ![GitHub repo size](https://img.shields.io/badge/repo%20size-900kb-yellow)  [![Build Status](https://travis-ci.com/ItaloAndrade/app-nodejs-demo.svg?branch=master)](https://travis-ci.com/ItaloAndrade/app-nodejs-demo)
@@ -11,7 +11,7 @@ Este é um modelo básico de API escrito em JavaScript ES2015. Ele pode ser util
 
 O projeto será executado utilizando  **NodeJs** e **MongoDB** para armazenamento de dados. O projeto está aberto para sugestões, hospedei o mesmo no heroku  e atualmente uso como base nos  meus projetos pessoais  ..
 
-## FreeLance
+## FreeLancer
 Você pode entrar em contato comigo diretamente pelo e-mail: ([italorio@gmail.com](mailto:italorio@gmail.com "italorio@gmail.com")) or you can download my CV from my personal [website](https://italo.andrade.github.io/portfolio/).
 
 ## Doação
@@ -30,14 +30,14 @@ Se você considera meu projeto como algo útil, pode  valorizar o meu trabalho f
     - Integração continua com Travis Cli.
     - Eslint .
  
-## Software Necessário
+## Software Necessários
 
     - Node.js **8+**
     - MongoDB **3.6+** (Recommended **4+**)
 
 ## Como instalar
 
-### Recomendo usar o Git (recommended)
+## Recomendo usar o Git (recommended)
 
 1.  Clone o projeto do github. Altere "myproject" para o nome do seu projeto.
 
@@ -45,22 +45,50 @@ Se você considera meu projeto como algo útil, pode  valorizar o meu trabalho f
 git clone https://github.com/ItaloAndrade/app-nodejs-demo.git ./myproject
 ```
 
-### Usando o  download manual
+## Usando o  download manual
 
 1.  Download repository
 2.  Descompacte em seu diretorio 
 
-### Instale as dependências do npm após a instalação (Git ou download manual)
+## Instale as dependências do npm após a instalação (Git ou download manual)
 
-```bash
 cd myproject
 npm install
-```
 
 ### Configurando ambientes
 
 1.  Você encontrará um arquivo chamado `config.env` no diretório raiz do projeto.
 2.  Altere o arquivo com suas configurações secretas.
+
+## Run
+
+```bash
+npm run start
+```
+
+## Debug
+
+```bash
+npm run debug
+```
+
+## Test
+
+```bash
+npm run test
+```
+
+## Lint
+
+```bash
+npm run lint
+```
+
+## Coverage
+
+```bash
+npm run coverage
+```
 
 ## Bugs or improvements
 
