@@ -8,3 +8,5 @@ exports.getFavorito = base.getOne(favorito);
 exports.updateFavorito = base.updateOne(favorito);
 
 exports.deleteFavorito = base.deleteOne(favorito);
+
+exports.add = base.createOne(favorito);

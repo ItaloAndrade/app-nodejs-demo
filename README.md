@@ -27,6 +27,8 @@ Se você considera meu projeto como algo útil, pode  valorizar o meu trabalho f
     - Estruturas de resposta predefinidas com códigos de status adequados.
     - CORS incluído.
     - Coleção API incluída para Postman.
+    - Integração continua com Travis Cli.
+    - Eslint .
  
 ## Software Necessário
 

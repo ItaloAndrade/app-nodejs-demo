@@ -4,7 +4,7 @@ const authRouter = require("./authRouter");
 const userRouter = require("./userRouter");
 const favoritoRouter = require("./favoritoRouter");
 
-var app = express();
+const app = express();
 
 app.use("/auth/", authRouter);
 app.use("/user/", userRouter);

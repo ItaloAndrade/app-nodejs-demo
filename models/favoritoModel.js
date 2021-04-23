@@ -22,9 +22,9 @@ const favoritoSchema = new mongoose.Schema({
 		type: Boolean,
 		default: true,
 		select: false,
-	  }
+	}
 }, {
 	timestamps: true
 });
 
-module.exports = mongoose.model("Favorito", userSchema);
+module.exports = mongoose.model("Favorito", favoritoSchema);

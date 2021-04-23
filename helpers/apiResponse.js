@@ -2,7 +2,7 @@
 /**padroniza retorno */
 
 exports.successResponse = function (res, msg) {
-	var data = {
+	const data = {
 		status: 1,
 		message: msg
 	};
@@ -10,7 +10,7 @@ exports.successResponse = function (res, msg) {
 };
 
 exports.successResponseWithData = function (res, msg, dataRes) {
-	var resData = {
+	const resData = {
 		status: 1,
 		message: msg,
 		data: dataRes
@@ -19,7 +19,7 @@ exports.successResponseWithData = function (res, msg, dataRes) {
 };
 
 exports.ErrorResponse = function (res, msg) {
-	var data = {
+	const data = {
 		status: 0,
 		message: msg,
 	};
@@ -27,7 +27,7 @@ exports.ErrorResponse = function (res, msg) {
 };
 
 exports.notFoundResponse = function (res, msg) {
-	var data = {
+	const data = {
 		status: 0,
 		message: msg,
 	};
@@ -35,7 +35,7 @@ exports.notFoundResponse = function (res, msg) {
 };
 
 exports.validationErrorWithData = function (res, msg, dataRes) {
-	var resData = {
+	const resData = {
 		status: 0,
 		message: msg,
 		data: dataRes
@@ -44,7 +44,7 @@ exports.validationErrorWithData = function (res, msg, dataRes) {
 };
 
 exports.unauthorizedResponse = function (res, msg) {
-	var data = {
+	const data = {
 		status: 0,
 		message: msg,
 	};
