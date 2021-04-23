@@ -11,18 +11,18 @@ exports.deleteUser = base.deleteOne(user);
 
 /** disable user  */
 exports.disableUser = async (req, res, next) => {
-    try {
-        await user.findByIdAndUpdate(req.user.id, {
-            active: false
-        });
+	try {
+		await user.findByIdAndUpdate(req.user.id, {
+			active: false
+		});
 
-        res.status(204).json({
-            status: 'success',
-            data: null
-        });
+		res.status(204).json({
+			status: "success",
+			data: null
+		});
 
 
-    } catch (error) {
-        next(error);
-    }
+	} catch (error) {
+		next(error);
+	}
 };

@@ -8,11 +8,11 @@ const AppError = require("../helpers/appError");
 const createToken = (id) => {
 
 	return jwt.sign({
-			id,
-		},
-		process.env.JWT_SECRET, {
-			expiresIn: process.env.JWT_EXPIRES_IN,
-		},
+		id,
+	},
+	process.env.JWT_SECRET, {
+		expiresIn: process.env.JWT_EXPIRES_IN,
+	},
 	);
 };
 /**
@@ -33,15 +33,12 @@ exports.signup = async (req, res, next) => {
 		} = req.body;
 
 		if (!name || !email || !password || !passwordConfirm || !role) {
-			return next(new AppError(404, "fail", "Forneça e-mail ou senha"), req, res, next);
+			return next(new AppError(400, "Bad Request", "Informações incompleta para realizar cadastro !"), req, res, next);
 		}
 
 		const user = await User.create({
 			name: req.body.name,
-			email: req.body.email,
-			password: req.body.password,
-			passwordConfirm: req.body.passwordConfirm,
-			role: req.body.role,
+			...req.body
 		});
 
 		const token = createToken(user.id);
@@ -74,31 +71,31 @@ exports.login = async (req, res, next) => {
 
 		if (!email || !password) {
 			return next(
-				new AppError(404, "fail", "Please provide email or password"),
+				new AppError(400, "Falha", "Por favor forneção o email e a senha !"),
 				req,
 				res,
 				next,
 			);
 		}
 
-		// 2) check if user exist and password is correct
+		/** 2) verifica se usuario existe e posteriormente se a senha condiz */
 		const user = await User.findOne({
 			email,
 		}).select("+password");
 
 		if (!user || !(await user.correctPassword(password, user.password))) {
 			return next(
-				new AppError(401, "fail", "Email or Password is wrong"),
+				new AppError(401, "Falha", "Email or Password está incorreta !"),
 				req,
 				res,
 				next,
 			);
 		}
 
-		// 3) All correct, send jwt to client
+		/** 3) Cria token com base no id do usuario */
 		const token = createToken(user.id);
-
-		// Remove the password from the output
+		
+		/**remove senha do campo */
 		user.password = (void 0);
 
 		res.status(200).json({

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const Console = require("console");
-const server = {};
+
 dotenv.config({
 	path: "./config.env"
 });
@@ -19,7 +19,9 @@ const app = require("./app");
 /**clear old log */
 Console.clear();
 
-const database = process.env.DATABASE.replace("<password>", process.env.DATABASE_PASSWORD);
+const database = process.env.NODE_ENVIROMMENT !== "development" ?
+	process.env.DATABASE.replace("<password>", process.env.DATABASE_PASSWORD) :
+	process.env.DATABASETEST.replace("<password>", process.env.DATABASE_PASSWORDTEST);
 
 /*  Conectando ao banco de dados  */
 mongoose.connect(database, {
@@ -39,7 +41,9 @@ app.listen(port, () => {
 
 process.on("unhandledRejection", (err) => {
 	Console.log(err.name, err.message);
+	// eslint-disable-next-line no-undef
 	server.close(() => {
 		process.exit(1);
 	});
 });
+ 

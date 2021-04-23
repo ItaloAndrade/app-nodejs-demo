@@ -21,7 +21,6 @@ class APIFeatures {
 		return this;
 	}
 
-	// Field Limiting ex: -----/user?fields=name,email,address
 	limitFields() {
 		if (this.queryString.fields) {
 			const fields = this.queryString.fields.split(",").join(" ");

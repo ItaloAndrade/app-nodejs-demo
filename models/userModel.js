@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: [true, "Por favor digite sua senha de confirmação !"],
 		validate: {
-			validator: (el) => {
+			validator: function (el) { 
 				/**caso diferente do pass ativa exceção */
 				return el === this.password;
 			},
