@@ -3,7 +3,7 @@ const {
 } = require("util");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const AppError = require("../helpers/appError");
+const appError = require("../helpers/appError");
 
 const createToken = (id) => {
 
@@ -33,7 +33,7 @@ exports.signup = async (req, res, next) => {
 		} = req.body;
 
 		if (!name || !email || !password || !passwordConfirm || !role) {
-			return next(new AppError(400, "Bad Request", "Informações incompleta para realizar cadastro !"), req, res, next);
+			return next(new appError(400, "Bad Request", "Informações incompleta para realizar cadastro !"), req, res, next);
 		}
 
 		const user = await User.create({
@@ -53,7 +53,7 @@ exports.signup = async (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		next(err);
+		return next(new appError(500, "Falha",err.message), req, res, next);
 	}
 };
 /**
@@ -71,7 +71,7 @@ exports.login = async (req, res, next) => {
 
 		if (!email || !password) {
 			return next(
-				new AppError(400, "Falha", "Por favor forneção o email e a senha !"),
+				new appError(400, "Falha", "Por favor forneção o email e a senha !"),
 				req,
 				res,
 				next,
@@ -85,7 +85,7 @@ exports.login = async (req, res, next) => {
 
 		if (!user || !(await user.correctPassword(password, user.password))) {
 			return next(
-				new AppError(401, "Falha", "Email or Password está incorreta !"),
+				new appError(401, "Falha", "Email or Password está incorreta !"),
 				req,
 				res,
 				next,
@@ -127,7 +127,7 @@ exports.protect = async (req, res, next) => {
 		}
 		if (!token) {
 			return next(
-				new AppError(
+				new appError(
 					401,
 					"fail",
 					"You are not logged in! Please login in to continue",
@@ -145,7 +145,7 @@ exports.protect = async (req, res, next) => {
 		const user = await User.findById(decode.id);
 		if (!user) {
 			return next(
-				new AppError(401, "fail", "This user is no longer exist"),
+				new appError(401, "fail", "This user is no longer exist"),
 				req,
 				res,
 				next,
@@ -167,7 +167,7 @@ exports.restrictTo = (...roles) => {
 	return (req, res, next) => {
 		if (!roles.includes(req.user.role)) {
 			return next(
-				new AppError(403, "fail", "You are not allowed to do this action"),
+				new appError(403, "fail", "You are not allowed to do this action"),
 				req,
 				res,
 				next,
