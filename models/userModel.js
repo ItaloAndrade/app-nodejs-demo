@@ -15,11 +15,6 @@ const userSchema = new mongoose.Schema({
 		lowercase: true,
 		validate: [validator.isEmail, " Please provide a valid email"]
 	},
-	status: {
-		type: Boolean,
-		default: true,
-		select: false,
-	},
 	password: {
 		type: String,
 		required: [true, "Por favor digite sua senha !"],
@@ -30,7 +25,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: [true, "Por favor digite sua senha de confirmação !"],
 		validate: {
-			validator: (el) => {
+			validator: function (el) { 
 				/**caso diferente do pass ativa exceção */
 				return el === this.password;
 			},
@@ -42,6 +37,11 @@ const userSchema = new mongoose.Schema({
 		enum: ["admin", "default"],
 		default: "default",
 	},
+	active: {
+		type: Boolean,
+		default: true,
+		select: false,
+	}
 }, {
 	timestamps: true
 });
