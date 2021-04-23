@@ -3,24 +3,17 @@ const {
 } = require("util");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const appError = require("../helpers/appError");
+const apiResponse = require("../helpers/apiResponse");
 
 const createToken = (id) => {
-
-	return jwt.sign({
-		id,
-	},
-	process.env.JWT_SECRET, {
-		expiresIn: process.env.JWT_EXPIRES_IN,
-	},
-	);
+	return jwt.sign({id,},process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN,});
 };
+
 /**
  * @param  {} req
- * @param  {} res
- * @param  {} next
+ * @param  {} res 
  */
-exports.signup = async (req, res, next) => {
+exports.signup = async (req, res) => {
 
 	try {
 
@@ -33,7 +26,7 @@ exports.signup = async (req, res, next) => {
 		} = req.body;
 
 		if (!name || !email || !password || !passwordConfirm || !role) {
-			return next(new appError(400, "Bad Request", "Informações incompleta para realizar cadastro !"), req, res, next);
+			return apiResponse.ErrorResponseCustom(res, "Informações incompleta para realizar cadastro !", 400);
 		}
 
 		const user = await User.create({
@@ -53,13 +46,12 @@ exports.signup = async (req, res, next) => {
 			},
 		});
 	} catch (err) {
-		return next(new appError(500, "Falha",err.message), req, res, next);
+		return apiResponse.ErrorResponse(res, err.message);
 	}
 };
 /**
  * @param  {} req
- * @param  {} res
- * @param  {} next
+ * @param  {} res 
  */
 exports.login = async (req, res, next) => {
 	try {
@@ -70,12 +62,7 @@ exports.login = async (req, res, next) => {
 		} = req.body;
 
 		if (!email || !password) {
-			return next(
-				new appError(400, "Falha", "Por favor forneção o email e a senha !"),
-				req,
-				res,
-				next,
-			);
+			return apiResponse.ErrorResponseCustom(res, "Por favor forneção o email e a senha !", 400);
 		}
 
 		/** 2) verifica se usuario existe e posteriormente se a senha condiz */
@@ -84,17 +71,12 @@ exports.login = async (req, res, next) => {
 		}).select("+password");
 
 		if (!user || !(await user.correctPassword(password, user.password))) {
-			return next(
-				new appError(401, "Falha", "Email or Password está incorreta !"),
-				req,
-				res,
-				next,
-			);
+			return apiResponse.ErrorResponseCustom(res, "Email or Password está incorreta !", 401);
 		}
 
 		/** 3) Cria token com base no id do usuario */
 		const token = createToken(user.id);
-		
+
 		/**remove senha do campo */
 		user.password = (void 0);
 
@@ -112,8 +94,7 @@ exports.login = async (req, res, next) => {
 /**
  * Valida Chamada
  * @param  {} req
- * @param  {} res
- * @param  {} next
+ * @param  {} res 
  */
 exports.protect = async (req, res, next) => {
 	try {
@@ -126,16 +107,7 @@ exports.protect = async (req, res, next) => {
 			token = req.headers.authorization.split(" ")[1];
 		}
 		if (!token) {
-			return next(
-				new appError(
-					401,
-					"fail",
-					"You are not logged in! Please login in to continue",
-				),
-				req,
-				res,
-				next,
-			);
+			return apiResponse.ErrorResponseCustom(res, "Você não está logado, realize o login para continuar !", 401);
 		}
 
 		/** 2) Verifica Token válido */
@@ -144,12 +116,7 @@ exports.protect = async (req, res, next) => {
 		/** 3) verifique se o usuário existe (não foi excluído)*/
 		const user = await User.findById(decode.id);
 		if (!user) {
-			return next(
-				new appError(401, "fail", "This user is no longer exist"),
-				req,
-				res,
-				next,
-			);
+			return apiResponse.ErrorResponseCustom(res, "Usuário não existe !", 401);
 		}
 
 		req.user = user;
@@ -166,12 +133,7 @@ exports.protect = async (req, res, next) => {
 exports.restrictTo = (...roles) => {
 	return (req, res, next) => {
 		if (!roles.includes(req.user.role)) {
-			return next(
-				new appError(403, "fail", "You are not allowed to do this action"),
-				req,
-				res,
-				next,
-			);
+			return apiResponse.ErrorResponseCustom(res, "Você não tem permissão acessar essa api !", 403);
 		}
 		next();
 	};

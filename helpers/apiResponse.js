@@ -26,6 +26,14 @@ exports.ErrorResponse = function (res, msg) {
 	return res.status(500).json(data);
 };
 
+exports.ErrorResponseCustom = function (res, msg, code) {
+	const data = {
+		status: code,
+		message: msg,
+	};
+	return res.status(code).json(data);
+};
+
 exports.notFoundResponse = function (res, msg) {
 	const data = {
 		status: 0,
