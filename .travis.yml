@@ -1,16 +1,21 @@
 language: node_js
+sudo: false
 node_js:
-  - '14'
-  - '15'
-  - '4'
+  - '12'
+  - '10'
+  - '8'
 branches:
   only:
     - dev
 cache:
-  npm: true
+  npm: false
 services:
   - mongodb
-before_script:
-  - cp config.env .env
 os:
   - windows
+before_script:
+  - cp config.env .env
+install:
+  - cd istanbul-mocha && npm install && cd ..
+script:
+  - cd istanbul-mocha && npm test
