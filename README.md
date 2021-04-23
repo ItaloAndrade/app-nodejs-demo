@@ -66,27 +66,6 @@ npm install
 
 Todo projeto precisa de melhorias, sinta-se à vontade para relatar quaisquer bugs ou melhorias. Solicitações pull são sempre bem-vindas..
 
-## Estrutura
-
-* [controllers/](.\app-nodejs-demo\controllers)
-  * [authController.js](.\app-nodejs-demo\controllers\authController.js)
-  * [baseController.js](.\app-nodejs-demo\controllers\baseController.js)
-  * [errorController.js](.\app-nodejs-demo\controllers\errorController.js)
-  * [userController.js](.\app-nodejs-demo\controllers\userController.js)
-* [helpers/](.\app-nodejs-demo\helpers)
-  * [apiFeatures.js](.\app-nodejs-demo\helpers\apiFeatures.js)
-  * [apiResponse.js](.\app-nodejs-demo\helpers\apiResponse.js)
-  * [appError.js](.\app-nodejs-demo\helpers\appError.js)
-* [models/](.\app-nodejs-demo\models)
-  * [user.js](.\app-nodejs-demo\models\user.js)
-* [app.js](.\app-nodejs-demo\app.js)
-* [config.env](.\app-nodejs-demo\config.env)
-* [LICENSE](.\app-nodejs-demo\LICENSE)
-* [package-lock.json](.\app-nodejs-demo\package-lock.json)
-* [package.json](.\app-nodejs-demo\package.json)
-* [README.md](.\app-nodejs-demo\README.md)
-* [serve.js](.\app-nodejs-demo\serve.js)
-
 ## License
 
 Este projeto é um software de código aberto licenciado sob a Licença MIT. Veja o arquivo de LICENÇA para mais informações.
