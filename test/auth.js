@@ -77,7 +77,7 @@ describe("Auth", () => {
 	 * @param  {} "/POSTLogin"
 	 * @param  {} (
 	 */
-	describe("/POST Login", () => {
+	describe("/POST LOGIN COM ERRO FALTA DA SENHA", () => {
 		it("Deve retornar erro por falta de campo , erro 400.", (done) => {
 			chai.request(app)
 				.post("/api/auth/login")
@@ -96,7 +96,7 @@ describe("Auth", () => {
 	 * @param  {} "/POSTLogin"
 	 * @param  {} (
 	 */
-	describe("/POST Login", () => {
+	describe("/POST LOGIN INEXISTENTE", () => {
 		it("Deve retornar erro de login", (done) => {
 			chai.request(app)
 				.post("/api/auth/login")
@@ -116,7 +116,7 @@ describe("Auth", () => {
 	 * @param  {} "/POSTLogin"
 	 * @param  {} (
 	 */
-	describe("/POST Login", () => {
+	describe("/POST Login DONE", () => {
 		it("Deve realizar o login", (done) => {
 			chai.request(app)
 				.post("/api/auth/login")
@@ -126,7 +126,7 @@ describe("Auth", () => {
 				})
 				.end((err, res) => {
 					res.should.have.status(200);
-					res.body.should.have.property("message").eql("Login Success.");
+					res.body.should.have.property("status").eql("success");
 					done();
 				});
 		});
