@@ -1,5 +1,6 @@
 # Nodejs ExpressJs MongoDB utilizando  boas práticas de desenvolvimento
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0f981f3816194ee5b35bb664acdc2a45)](https://app.codacy.com/gh/ItaloAndrade/app-nodejs-demo?utm_source=github.com&utm_medium=referral&utm_content=ItaloAndrade/app-nodejs-demo&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3574d6cb24e94649a2bda0a1b8ce4817)](https://app.codacy.com/gh/ItaloAndrade/app-nodejs-demo?utm_source=github.com&utm_medium=referral&utm_content=ItaloAndrade/app-nodejs-demo&utm_campaign=Badge_Grade_Settings)
 [![Author](https://img.shields.io/badge/author-italoandrade.develop%40gmail.com-blue)](mailto:italorio@gmail.com "italoandrade.developer@gmail.com") [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/rest-api-nodejs-mongodb/blob/master/LICENSE) ![GitHub repo size](https://img.shields.io/badge/repo%20size-900kb-yellow)  ![italorio@gmail.com](https://img.shields.io/badge/build-pass-green)
 
