@@ -7,7 +7,7 @@ branches:
   only:
     - master
 cache:
-  npm: false
+  npm: true
 services:
   - mongodb
 before_script:
