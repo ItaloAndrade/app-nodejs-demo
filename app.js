@@ -7,7 +7,6 @@ const hpp = require("hpp");
 const cors = require("cors");
 const path = require("path");
 
-const globalErrHandler = require("./controllers/errorController");
 const apiResponse = require("./helpers/apiResponse");
 const indexRouter = require("./routes/indexRouter");
 const apiRouter = require("./routes/apiRouter");
@@ -63,5 +62,4 @@ app.use((err, req, res) => {
 	}
 });
 
-app.use(globalErrHandler);
 module.exports = app; 

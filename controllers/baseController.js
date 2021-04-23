@@ -1,12 +1,12 @@
-const appError = require("../helpers/appError");
 const apiFeatures = require("../helpers/apiFeatures");
+const apiResponse = require("../helpers/apiResponse");
 
 exports.deleteOne = (Model) => async (req, res, next) => {
 	try {
 		const doc = await Model.findByIdAndDelete(req.params.id);
 
 		if (!doc) {
-			return next(new appError(404, "fail", "Nenhum documento encontrado com esse id !"), req, res, next);
+			return apiResponse.ErrorResponseCustom(res, "Nenhum documento encontrado com esse id !", 400);
 		}
 
 		res.status(204).json({
@@ -26,7 +26,7 @@ exports.updateOne = (Model) => async (req, res, next) => {
 		});
 
 		if (!doc) {
-			return next(new appError(404, "fail", "Nenhum documento encontrado com esse id"), req, res, next);
+			return apiResponse.ErrorResponseCustom(res, "Nenhum documento encontrado com esse id !", 400);
 		}
 
 		res.status(200).json({
@@ -63,7 +63,7 @@ exports.getOne = (Model) => async (req, res, next) => {
 		const doc = await Model.findById(req.params.id);
 
 		if (!doc) {
-			return next(new appError(404, "fail", "Nenhum documento encontrado com esse id"), req, res, next);
+			return apiResponse.ErrorResponseCustom(res, "Nenhum documento encontrado com esse id !", 400);
 		}
 
 		res.status(200).json({
