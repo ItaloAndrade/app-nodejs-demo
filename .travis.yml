@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '14'
+  - '15'
+  - '4'
+branches:
+  only:
+    - dev
+cache:
+  npm: true
+services:
+  - mongodb
+before_script:
+  - cp config.env .env
+os:
+  - windows

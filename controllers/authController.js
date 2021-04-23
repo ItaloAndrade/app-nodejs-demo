@@ -2,7 +2,7 @@ const {
 	promisify
 } = require("util");
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const User = require("../models/userModel");
 const AppError = require("../helpers/appError");
 
 const createToken = (id) => {

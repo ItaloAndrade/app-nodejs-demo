@@ -64,13 +64,7 @@ npm install
 
 Todo projeto precisa de melhorias, sinta-se à vontade para relatar quaisquer bugs ou melhorias. Solicitações pull são sempre bem-vindas..
 
-## License
-
-Este projeto é um software de código aberto licenciado sob a Licença MIT. Veja o arquivo de LICENÇA para mais informações.
-
- 
- 
- # app-nodejs-demo
+## Estrutura
 
 * [controllers/](.\app-nodejs-demo\controllers)
   * [authController.js](.\app-nodejs-demo\controllers\authController.js)
@@ -90,3 +84,7 @@ Este projeto é um software de código aberto licenciado sob a Licença MIT. Vej
 * [package.json](.\app-nodejs-demo\package.json)
 * [README.md](.\app-nodejs-demo\README.md)
 * [serve.js](.\app-nodejs-demo\serve.js)
+
+## License
+
+Este projeto é um software de código aberto licenciado sob a Licença MIT. Veja o arquivo de LICENÇA para mais informações.

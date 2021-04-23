@@ -1,14 +1,23 @@
-const User = require("../models/user");
-const base = require("./baseController");
+const user = require("../models/userModel");
+const base = require("./baseController"); 
 
-exports.deleteMe = async (req, res, next) => {
+exports.getUsers = base.getAll(user);
+
+exports.getUser = base.getOne(user);
+
+exports.updateUser = base.updateOne(user);
+
+exports.deleteUser = base.deleteOne(user);
+
+/** disable user  */
+exports.disableUser = async (req, res, next) => {
     try {
-        await User.findByIdAndUpdate(req.user.id, {
+        await user.findByIdAndUpdate(req.user.id, {
             active: false
         });
 
         res.status(204).json({
-            status: "success",
+            status: 'success',
             data: null
         });
 
@@ -17,10 +26,3 @@ exports.deleteMe = async (req, res, next) => {
         next(error);
     }
 };
-
-exports.getAllUsers = base.getAll(User);
-exports.getUser = base.getOne(User);
-
-// Don"t update password on this 
-exports.updateUser = base.updateOne(User);
-exports.deleteUser = base.deleteOne(User);
