@@ -8,7 +8,7 @@
     "debug": "ndb serve.js",
     "test": "nyc _mocha --timeout 10000 --exit --report lcovonly -- -R spec",
     "lint": "eslint --fix --config .eslintrc.json \"**/*.js\"",
-    "coverage" : "nyc --reporter=html --reporter=text npm test"
+    "coverage": "nyc --reporter=html --reporter=text npm test"
   },
   "author": "Italo Andrade",
   "license": "ISC",
