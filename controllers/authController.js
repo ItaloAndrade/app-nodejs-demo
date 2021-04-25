@@ -6,7 +6,11 @@ const User = require("../models/userModel");
 const apiResponse = require("../helpers/apiResponse");
 
 const createToken = (id) => {
-	return jwt.sign({id,},process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN,});
+	return jwt.sign({
+		id,
+	}, process.env.JWT_SECRET, {
+		expiresIn: process.env.JWT_EXPIRES_IN,
+	});
 };
 
 /**
@@ -131,10 +135,32 @@ exports.protect = async (req, res, next) => {
  * @param  {} ...roles
  */
 exports.restrictTo = (...roles) => {
-	return (req, res, next) => {
-		if (!roles.includes(req.user.role)) {
-			return apiResponse.ErrorResponseCustom(res, "Você não tem permissão acessar essa api !", 403);
+	return async (req, res, next) => {
+
+		try {
+			let token;
+			if (
+				req.headers.authorization &&
+				req.headers.authorization.startsWith("Bearer")
+			) {
+				token = req.headers.authorization.split(" ")[1];
+			}
+			if (!token) {
+				return apiResponse.ErrorResponseCustom(res, "Você não está logado, realize o login para continuar !", 401);
+			}
+
+			const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+			/** 3) verifique se o usuário existe (não foi excluído)*/
+			const current = await User.findById(decode.id);
+
+			if (!roles.includes(current.role)) {
+				return apiResponse.ErrorResponseCustom(res, "Você não tem permissão acessar essa api !", 403);
+			}
+			next();
+
+		} catch (err) {
+			return {};
 		}
-		next();
 	};
 };

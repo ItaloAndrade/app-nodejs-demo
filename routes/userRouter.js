@@ -5,6 +5,10 @@ const authController = require("../controllers/authController");
 const router = express.Router();
 
 router
+	.route("/current")
+	.get(userController.getCurrent);
+
+router
 	.route("/:id")
 	.get(userController.getUser)
 	.patch(userController.updateUser)
