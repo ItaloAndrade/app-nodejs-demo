@@ -26,8 +26,16 @@ exports.getCurrent = async (req, res, next) => {
 
 		const decode = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
+		if (!decode.id) {
+			return apiResponse.ErrorResponseCustom(res, "Você não está logado, realize o login para continuar !", 401);
+		}
+
 		/** 3) verifique se o usuário existe (não foi excluído)*/
 		const current = await user.findById(decode.id);
+
+		if (!current) {
+			return apiResponse.ErrorResponseCustom(res, "Você não está logado, realize o login para continuar !", 401);
+		}	
 
 		res.status(200).json({
 			status: "success",
