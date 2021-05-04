@@ -78,8 +78,8 @@ exports.getOne = (Model) => async (req, res, next) => {
 };
 
 exports.getAll = (Model) => async (req, res, next) => {
-	try {
-
+	try { 
+		
 		const features = new apiFeatures(Model.find(), req.query)
 			.sort()
 			.paginate();
