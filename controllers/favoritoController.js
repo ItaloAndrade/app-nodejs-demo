@@ -13,8 +13,29 @@ exports.deleteFavorito = base.deleteOne(favorito);
 exports.add = base.createOne(favorito);
 
 exports.getFavoritoByUsuario = async (req, res, next) => {
-	try {
+	try { 
+
 		const doc = await favorito.findOne({idUsuario:req.params.idUsuario});
+ 
+		if (!doc) {
+			return apiResponse.ErrorResponseCustom(res, "Nenhum documento encontrado com esse id !", 400);
+		}
+
+		res.status(200).json({
+			status: "success",
+			data: {
+				doc
+			}
+		});
+	} catch (error) {
+		next(error);
+	}
+};
+
+exports.getFavoritosByUsuario = async (req, res, next) => {
+	try { 
+		
+		const doc = await favorito.find({idUsuario:req.params.idUsuario});
  
 		if (!doc) {
 			return apiResponse.ErrorResponseCustom(res, "Nenhum documento encontrado com esse id !", 400);

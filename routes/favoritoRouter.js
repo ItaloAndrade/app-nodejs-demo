@@ -4,10 +4,20 @@ const favoritoController = require("../controllers/favoritoController");
 
 const router = express.Router();
 
+
+
+router
+	.route("/getFavoritosByUsuario/:idUsuario")
+	.get(favoritoController.getFavoritosByUsuario);
+
+
 router
 	.route("/:idUsuario")
 	.get(favoritoController.getFavoritoByUsuario);
-	
+
+
+  
+  
 router
 	.route("/:id")
 	.get(favoritoController.getFavorito)
