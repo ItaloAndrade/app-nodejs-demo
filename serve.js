@@ -19,7 +19,7 @@ const app = require("./app");
 /**clear old log */
 Console.clear();
 
-const database = process.env.NODE_ENVIROMMENT !== "development" ?
+const database = process.env.NODE_ENVIROMMENT == "development" ?
 	process.env.DATABASE.replace("<password>", process.env.DATABASE_PASSWORD) :
 	process.env.DATABASETEST.replace("<password>", process.env.DATABASE_PASSWORDTEST);
 
